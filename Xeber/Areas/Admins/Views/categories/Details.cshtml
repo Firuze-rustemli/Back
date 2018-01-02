@@ -1,0 +1,83 @@
+﻿@model Xeber.Models.category
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admins/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style>
+    dd {
+        text-align: center;
+    }
+
+    .control-label {
+        color: black;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .form-control {
+        padding: 6px 28px;
+        margin-bottom: 15px;
+    }
+
+    .back {
+        padding: 4px 17px;
+        background: rgb(54, 127, 169);
+        border-radius: 5px;
+        border: none;
+        margin-bottom: 15px;
+        color: white !important;
+        margin-left: 12%;
+        margin-top: 12%;
+    }
+
+    .form-group {
+        text-align: center;
+    }
+
+    .back {
+        width: 15%;
+        color: white;
+    }
+
+    .edit {
+        width: 6%;
+    }
+
+    .head {
+        font-size: 22px;
+        background: black;
+        color: white;
+        text-align: center;
+        font-family: cursive;
+    }
+</style>
+<h2 class="head">Melumat</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <div class="back">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+        @Html.ActionLink("Back to List", "Index")
+        </div>
+</p>

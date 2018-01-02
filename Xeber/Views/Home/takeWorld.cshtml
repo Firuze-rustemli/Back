@@ -1,0 +1,22 @@
+﻿@using Xeber.Models
+
+@{
+    ViewBag.Title = "takeWorld";
+
+}
+
+@foreach (news item in ViewBag.world)
+{
+<div class="layout_2--item margin-bottom-25  fadeIn animated" style="visibility: visible;">
+    <div class="thumb margin-bottom-10  fadeIn animated" style="visibility: visible;">
+        <div class="icon-24 gallery2  fadeIn animated" style="visibility: visible;"></div>
+        <a href="@Url.Action("read","news", new {id=item.id})"><img src="~/Public/images/@item.photo" class="img-responsive" alt=""></a>
+    </div>
+    <span class="cat">@item.title</span>
+    <h4><a href="@Url.Action("read","news", new {id=item.id})">@item.content.Substring(0,42)..</a></h4>
+    <div class="meta  fadeIn animated" style="visibility: visible;">
+        <span class="author">@item.writer</span><span class="date">@item.date.ToString("dd.MMMM.yy")</span><span class="comments">@item.comment.Count</span>
+    </div>
+</div>
+
+}

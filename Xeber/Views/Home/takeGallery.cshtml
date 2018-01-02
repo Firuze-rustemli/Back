@@ -1,0 +1,42 @@
+﻿@using Xeber.Models;
+
+@{
+    ViewBag.Title = "takeGallery";
+}
+
+<div class="col-md-6 col-sm-6 margin-bottom-30  fadeIn animated" style="visibility: visible;">
+    <div class="layout_3--item  fadeIn animated" style="visibility: visible;">
+        <div class="thumb  fadeIn animated" style="visibility: visible;">
+            <a href="Pages/page_healthy/post3.html"><img src="~/Public/images/healthy/3.jpg" class="img-responsive" alt=""></a>
+        </div>
+        <span class="cat">Sağlamlıq</span>
+        <h4><a href="Pages/page_healthy/post3.html">Starbucks Is Giving Its Workers a Raise</a></h4>
+        <p>
+            Model bədən quruluşuna sahib olmaq üçün bir çox qadınlar birdən-birə arıqlayır. Hazırda
+            bu çox asandır, çünki arıqladıcı vasitələr bazarı çox güclü bir vasitə təklif edir
+            - Coffee Srim.Həkimlər həyəcan təbili çalır.
+        </p>
+        <div class="meta  fadeIn animated" style="visibility: visible;"><span class="author">by Rana F.</span><span class="date">Sep. 28, 2016</span></div>
+    </div>
+</div>
+<div class="col-md-6 col-sm-6 margin-bottom-30  fadeIn animated" style="visibility: visible;">
+@foreach (news item in ViewBag.gallery)
+{
+    <div class="layout_2--item row  fadeIn animated" style="visibility: visible;">
+        <div class="col-md-6 col-sm-5  fadeIn animated" style="visibility: visible;">
+            <div class="thumb  fadeIn animated" style="visibility: visible;">
+                <a href="@Url.Action("read","news", new {id=item.id})"><img src="~/Public/images/@item.photo" class="img-responsive" alt=""></a>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-7  fadeIn animated" style="visibility: visible;">
+            <span class="cat">@item.title"</span>
+            <h4><a href="#">@item.content.Substring(0,30)..</a></h4>
+            <div class="meta  fadeIn animated" style="visibility: visible;"><span class="date">@item.date.ToString("dd.MMMM.yy")</span><span class="comments">@item.comment.Count</span></div>
+        </div>
+    </div>
+    <hr class="l2">
+}
+
+
+</div>
+

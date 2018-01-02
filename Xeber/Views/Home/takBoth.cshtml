@@ -1,0 +1,23 @@
+﻿@using Xeber.Models
+
+@{
+    ViewBag.Title = "takBoth";
+}
+
+@foreach (news item in ViewBag.both)
+{
+<div class=" margin-bottom-30 layout_2--item row  fadeIn animated" style="visibility: visible;">
+    <div class="col-md-6  fadeIn animated" style="visibility: visible;">
+        <div class="thumb  fadeIn animated" style="visibility: visible;">
+            <div class="icon-24 video2  fadeIn animated" style="visibility: visible;"></div>
+            <a href="@Url.Action("read","news", new {id=item.id})"><img src="~/Public/images/@item.photo" class="img-responsive" alt=""></a>
+        </div>
+    </div>
+    <div class="col-md-6  fadeIn animated" style="visibility: visible;">
+        <span class="cat">@item.title</span>
+        <h4><a href="@Url.Action("read","news", new {id=item.id})">@item.content.Substring(0,50)..</a></h4>
+        <div class="meta  fadeIn animated" style="visibility: visible;"><span class="date">@item.date.ToString("dd.MMMM.yy")</span><span class="comments">@item.comment.Count</span></div>
+    </div>
+</div>
+}
+

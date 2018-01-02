@@ -1,0 +1,27 @@
+﻿@using Xeber.Models;
+
+@{
+    ViewBag.Title = "takePic";
+}
+
+<div class="row margin-bottom-30  fadeIn animated" style="visibility: visible;">
+@foreach (news item in ViewBag.picture)
+{
+    <div class="col-md-4 col-sm-4  fadeIn animated" style="visibility: visible;">
+        <div class="layout_2--item  fadeIn animated" style="visibility: visible;">
+            <div class="thumb  fadeIn animated" style="visibility: visible;">
+                <a href="@Url.Action("read","news", new {id=item.id})"><img src="~/Public/images/@item.photo" class="img-responsive" alt=""></a>
+            </div>
+            <span class="cat">@item.title</span>
+            <h4>
+                <a href="@Url.Action("read","news", new {id=item.id})">
+                   @item.content.Substring(0,50)..
+                </a>
+            </h4>
+            <div class="meta  fadeIn animated" style="visibility: visible;"><span class="author">@item.writer</span><span class="date">@item.date.ToString("dd.MMMM.yy")</span><span class="comments">@item.comment.Count</span></div>
+        </div>
+    </div>
+}
+</div>
+
+

@@ -1,0 +1,17 @@
+﻿@using Xeber.Models;
+
+@{
+    ViewBag.Title = "takeMost";
+}
+
+    <ul class="side-posts">
+
+@foreach (news item in ViewBag.most)
+{
+        <li>
+        <span>25.08</span>
+        <a href="@Url.Action("read","news", new {id=item.id})">@item.description</a>
+        </li>
+}
+      
+    </ul>

@@ -1,0 +1,43 @@
+﻿@using Xeber.Models
+@{
+    ViewBag.Title = "takeSlide";
+}
+
+
+@helper titleKnow(string description)
+{ 
+if (description.Length > 25)
+{
+        <marque>@description</marque>
+}
+else
+{
+        @description
+}
+}
+
+<div class="post-carousel-wrap">
+    <div class="post-carousel">
+        <!--=============SLIDER============-->
+        <div id="owl-one" class="owl-carousel owl-theme">
+            @foreach (news item in ViewBag.slide)
+            {
+                <div class="item">
+                    <div class="layout_1--item">
+                        <a href="@Url.Action("read", "News", new { id = item.id })">
+                            <span class="badge text-uppercase badge-overlay badge-world">@item.title</span>
+                            <div class="overlay"></div>
+                            <img src="~/Public/images/@item.photo" class="img-responsive" alt="" />
+                            <div class="layout-detail padding-25  fadeIn animated" style="visibility: visible;">
+                                <h6>@titleKnow(item.description)</h6>
+                                <div class="meta  fadeIn animated" style="visibility: visible;"><span class="author">@item.writer</span><span class="date">@item.date.ToString("dd.MMMM.yy")</span><span class="comments">@item.comment.Count</span></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            }
+           
+        </div>
+        <!--===========END SLIDER=========-->
+    </div>
+</div>

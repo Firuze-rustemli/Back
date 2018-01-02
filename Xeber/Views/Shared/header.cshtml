@@ -1,0 +1,119 @@
+﻿@using Xeber.Models
+
+<!Doctype html>
+<html lang="En">
+
+<head>
+    <meta charset="utf-8" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="News,Information">
+    <meta name="author" content="Firuze Rustemli">
+    <title>News</title>
+    <!-- Css -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+          crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,400i,500,700,700i,900" rel="stylesheet">
+    <link href="~/Public/asset/css/responsive.css" rel="stylesheet">
+    <link href="~/Public/asset/css/animation.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/Public/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Public/owlcarousel/assets/owl.theme.default.min.css">
+    <link href="~/Public/asset/css/style.css" rel="stylesheet">
+    <link href="~/Public/asset/css/design.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/Public/asset/css/slicknav.css">
+    <link rel="stylesheet" href="~/Public/asset/css/superfish.css">
+</head>
+
+<body>
+    <div id="wrapper" style="margin-top: -4%">
+        <!-- =============HEADER==================== -->
+        <header class="header margin-bottom-30">
+            <!-- =================BREAKING================ -->
+            <div class="bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8 hidden-xs">
+                            <div class="breaking">
+                                <span>Qaynar Xəbərlər:</span>
+                                <p class='heading'>
+                                    <span id='dynamicText'></span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="pull-right options">
+                                @*<a style="font-size:16px" href="@Url.Action("index","user", new { @class="login" })">*@
+                                @Html.Partial("_LoginPartial")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- =============WATCHER============= -->
+            <div class="clearfix"> </div>
+            <div class="watcher padding-vertical-10">
+                <div clsas="main">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-3 logo">
+                             @*   <a href="@Url.Action("index","Home")"><img src="~/Public/images/@ViewBag.setting.logo" alt=""></a>*@
+                            </div>
+                            <div class="col-md-9 col-sm-9 nav-wrapper">
+                                <nav>
+                                    <ul class="sf-menu" id="menu" style="touch-action: pan-y;margin-top: 7px;margin-bottom: -21px;">
+                                        <li>
+                                            @Html.ActionLink("Əsas səhifə", "index", "home")<i class="fa fa-angle-down"></i>
+                                        </li>
+                                        <li>
+                                            <a href="#">Kateqorİya<i class="fa fa-angle-down"></i></a>
+                                            <ul class="animate">
+                                                <li>
+                                                    @Html.ActionLink("İqtisadiyyat", "index", "category")
+                                                </li>
+                                                <li>
+                                                    <a href="#">Maraqlı <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                                                    <ul class="animate drop">
+                                                        <li>
+                                                            @Html.ActionLink("Şou", "magasin", "category")
+                                                        </li>
+                                                        <li>
+                                                            @Html.ActionLink("Sağlamlıq", "healthy", "category")
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    @Html.ActionLink("İdman", "sport", "category")
+                                                </li>
+                                                <li>
+                                                    @Html.ActionLink("Sosial", "social", "category")
+                                                </li>
+                                                <li>
+                                                    @Html.ActionLink("Dünya", "world", "category")
+                                                </li>
+                                                <li>
+                                                    @Html.ActionLink("Kriminal", "crime", "category")
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("Komanda", "tech", "category")
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("Əlaqə", "index", "contact")
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ===============MENU=============== -->
+            <div class="clearfix"> </div>
+        </header>

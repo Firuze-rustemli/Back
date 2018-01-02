@@ -1,0 +1,338 @@
+﻿@using Xeber.Models;
+
+@{
+    ViewBag.Title = "sport";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ <!-- ===============.=======CONTENT================ -->
+<div class="container margin-top-30">
+    <div class="row">
+        <!--======================PATH=========================-->
+        <div id="breadcrumbs" class="stuck_position margin-bottom-30">
+            <div class="container">
+                <div class="row">
+                    <div class="moduletable   col-sm-12">
+                        <div class="module_container">
+                            <ul class="breadcrumb">
+                                <li><a href="index-2.html" class="pathway">Baş səhifə</a></li>
+                                <li><a href="index-2.html" class="pathway">Kateqoriya</a></li>
+                                <li class="active"><span>İdman</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 col-sm-8  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+            <!--=============================LAyout -1 ======================-->
+            <h3 class="heading-1"><span>Əsas Xəbərlər</span></h3>
+            <div class="layout_1 home4-masonry2 margin-bottom-50  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                <div class="row  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+               
+                    @foreach (news item in ViewBag.sport)
+                    {
+
+                    <div class="col-md-4 col-sm-4  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                        <div class="layout_1--item  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <a href="@Url.Action("read","news", new {id=item.id})">
+                                <div class="overlay  fadeIn" style="visibility: visible; animation-name: fadeIn;"></div>
+                                <img src="~/Public/images/@item.photo" style="height: 249px;" class="img-responsive" alt="">
+                                <div class="layout-detail padding-20  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                                    <h5>@item.description </h5>
+                                    <div class="meta  fadeIn" style="visibility: visible; animation-name: fadeIn;"><span class="date">@item.date.ToString("dd.MMMM.yy")</span><span class="comments">@item.comment.Count</span></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    }
+
+                </div>
+
+            </div>
+        </div>
+        <!-- ===============.=======ASIDE================ -->
+        <aside class="col-md-4 col-sm-4">
+            <div class="side-widget margin-bottom-60  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                <!-- ======================Trending Yenis================ -->
+                <div class="side-widget margin-bottom-30 animated" style="visibility: visible;">
+                    <h3 class="heading-1"><span>yeni</span></h3>
+                    <ul class="trending-text">
+                        @foreach(news item in ViewBag.sport_side)
+                        {
+                        <li>
+                            <em>@item.count</em>
+                            <p><a href="@Url.Action("read", "news", new {id=item.id})">@item.description</a> <span>@item.date.ToString("dd.MMMMM.yy")</span></p>
+                        </li>
+                         }
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>
+<!--====================LAYOUT-2=============================-->
+<div class="container">
+    <div class="layout_2 margin-bottom-15  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+        <div class="row  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+           @foreach (news item in ViewBag.sport_snd)
+           {
+            <div class="col-md-2 col-sm-6  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                <div class="layout_2--item  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                    <div class="thumb margin-bottom-10  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                        <div class=" gallery2  fadeIn" style="visibility: visible; animation-name: fadeIn;"></div>
+                        <a href="@Url.Action("read","news", new {id=item.id})"><img src="~/Public/images/@item.photo" class="img-responsive" alt=""></a>
+                    </div>
+                    <h4><a href="@Url.Action("read","news", new {id=item.id})">@item.description</a></h4>
+                    <span class="author" style="font-size: 15px; color: #fff;margin-right: 6px;">@item.writer</span>
+                    <div class="meta  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                        <span class="date" style="font-size: 15px;color: #fff;margin-right: 6px;">@item.date.ToString("dd.MMMM.yy")</span>
+                        <span class="comments" style="font-size: 15px;color: #fff;margin-right: 6px;">@item.comment.Count</span>
+                    </div>
+                </div>
+            </div>
+           }
+        </div>
+    </div>
+</div>
+<!--====================VIDEO CAROUSEL======================-->
+<h3 class="heading-1"><span>Videolar</span></h3>
+<div class=" margin-top-30   fadeIn animated margin-bottom-60">
+    <div class="margin-top-30 video-carousel-wrap bg-dark">
+        <div class="container">
+            <div class="clearfix"></div>
+            <div class="col-md-8 col-sm-7 no-padding">
+                <div class="video-container">
+                    <video id="video" width="400" onclick="togglePause()" controls>
+                        <source src="video/01.mp4" type="video/mp4">
+                    </video>
+                    <div class="layout_1--item vc-item1 active">
+                        <div class="video-play"></div>
+                        <span class="badge text-uppercase badge-overlay badge-tech">Lorem</span>
+                        <div class="overlay"></div>
+                        <img src="~/Public/images/videos/1.png" class="img-responsive" alt="" />
+                        <div class="layout-detail padding-25">
+                            <h4>Avtobusda sernişin sürücü ilə dava etdi</h4>
+                            <div class="meta">
+                                <span class="author">by Firuze R.</span><span class="date">Sep. 27, 2016</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layout_1--item vc-item2">
+                        <div class="video-play"></div>
+                        <span class="badge text-uppercase badge-overlay badge-tech">Lorem</span>
+                        <div class="overlay"></div>
+                        <img src="~/Public/images/videos/02.jpg" class="img-responsive" alt="" />
+                        <div class="layout-detail padding-25">
+                            <h4>Ünvanlı sosial yardım artılacaq</h4>
+                            <div class="meta">
+                                <span class="author">by Firuze R.</span><span class="date">Sep. 27, 2016</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layout_1--item vc-item3">
+                        <div class="video-play"></div>
+                        <span class="badge text-uppercase badge-overlay badge-tech">Tech</span>
+                        <div class="overlay"></div>
+                        <img src="~/Public/images/videos/3.jpg" class="img-responsive" alt="" />
+                        <div class="layout-detail padding-25">
+                            <h4>Yeni ana olan mugennni ƏRİ VƏ ÖVLADI İLƏ- Shou biznes</h4>
+                            <div class="meta">
+                                <span class="author">
+                                    by Firuze R
+                                </span><span class="date">Sep. 27, 2016</span><span class="comments">3</span>
+                                <span class="views">284</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layout_1--item vc-item4">
+                        <div class="video-play"></div>
+                        <span class="badge text-uppercase badge-overlay badge-tech">Lorem</span>
+                        <div class="overlay"></div>
+                        <img src="~/Public/images/videos/4.jpg" class="img-responsive" alt="" />
+                        <div class="layout-detail padding-25">
+                            <h4>
+                                İrana gedənlər məcburi sığortalanacaqlar I Xezer Xeber
+                            </h4>
+                            <div class="meta">
+                                <span class="author">by Firuze R.</span><span class="date">Sep. 27, 2016</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layout_1--item vc-item4">
+                        <div class="video-play"></div>
+                        <span class="badge text-uppercase badge-overlay badge-tech">Lorem</span>
+                        <div class="overlay"></div>
+                        <img src="~/Public/images/videos/4.jpg" class="img-responsive" alt="" />
+                        <div class="layout-detail padding-25">
+                            <h4>
+                                İrana gedənlər məcburi sığortalanacaqlar I Xezer Xeber
+                            </h4>
+                            <div class="meta">
+                                <span class="author">by Firuze R.</span><span class="date">Sep. 27, 2016</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-5 no-padding">
+                <div class="now-playing">
+                    <i class="fa fa-play"></i>
+                    <p>Ən son baxılanlar</p>
+                </div>
+                <div class="video-list">
+                    <ul>
+                        <li class="vl-video1">
+                            <div class="thumb">
+                                <div class="overlay-alt"></div>
+                                <div class="video-play-32"></div>
+                                <img src="~/Public/images/videos/1.png" class="img-responsive" alt="" />
+                            </div>
+                            <p>Avtobusda sernişin sürücü ilə dava etdi</p>
+                        </li>
+                        <li class="vl-video2">
+                            <div class="thumb">
+                                <div class="overlay-alt"></div>
+                                <div class="video-play-32"></div>
+                                <img src="~/Public/images/videos/02.jpg" class="img-responsive" alt="" />
+                            </div>
+                            <p>Ünvanlı sosial yardım artılacaq</p>
+                        </li>
+                        <li class="vl-video3">
+                            <div class="thumb">
+                                <div class="overlay-alt"></div>
+                                <div class="video-play-32"></div>
+                                <img src="~/Public/images/videos/3.jpg" class="img-responsive" alt="" />
+                            </div>
+                            <p>Yeni ana olan müğənni əri və övladı ilə</p>
+                        </li>
+                        <li class="vl-video2">
+                            <div class="thumb">
+                                <div class="overlay-alt"></div>
+                                <div class="video-play-32"></div>
+                                <img src="~/Public/images/videos/4.jpg" class="img-responsive" alt="" />
+                            </div>
+                            <p>
+                                İrana gedənlər məcburi sığortalanacaqlar I Xezer Xeber
+                            </p>
+                        </li>
+                        <li class="vl-video2">
+                            <div class="thumb">
+                                <div class="overlay-alt"></div>
+                                <div class="video-play-32"></div>
+                                <img src="~/Public/images/videos/4.jpg" class="img-responsive" alt="" />
+                            </div>
+                            <p>
+                                İrana gedənlər məcburi sığortalanacaqlar I Xezer Xeber
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<div class="container margin-top-30">
+    <div class="row">
+        <!--====================Layout-2======================-->
+        <div class="layout_2 margin-bottom-15  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+            <div class="row  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                 
+                @foreach (news item in ViewBag.sport_rd)
+                {
+                <div class="col-md-2 col-sm-6  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                    <div class="layout_2--item  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                        <div class="thumb margin-bottom-10  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <div class="gallery2  fadeIn" style="visibility: visible; animation-name: fadeIn;"></div>
+                            <a href="@Url.Action("read","news", new {id=item.id})"><img src="~/Public/images/@item.photo" class="img-responsive" alt=""></a>
+                        </div>
+                        <h4><a href="@Url.Action("read","news", new {id=item.id})">@item.description</a></h4>
+                        <span class="author" style="font-size: 15px; color: #fff;margin-right: 6px;">@item.writer</span>
+                        <div class="meta  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <span class="date" style="font-size: 15px;color: #fff;margin-right: 6px;">@item.date.ToString("dd.MMMM.yy")</span>
+                            <span class="comments" style="font-size: 15px;color: #fff;margin-right: 6px;">@item.comment.Count</span>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+        <div class="col-md-8 col-sm-8  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+            <!--====================Layout-3======================-->
+            <h3 class="heading-1"><span>son xəbərlər</span></h3>
+            @foreach (news item in ViewBag.sport_down)
+            {
+            <div class="layout_3--item row  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                <div class="col-md-6  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                    <div class="thumb  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                        <a href="@Url.Action("read","news", new {id=item.id})"><img src="~/Public/images/@item.photo" class="img-responsive" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-md-6  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                    <span class="cat">@item.title</span>
+                    <h4><a href="@Url.Action("read","news", new {id=item.id})">@item.description</a></h4>
+                    <p>
+                      @item.content.Substring(0,60)...
+                    </p>
+                    <span class="author" style="font-size: 15px; color: #fff;margin-right: 6px;">@item.writer</span>
+                    <div class="meta  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                        <span class="date" style="font-size: 15px;color: #fff;margin-right: 6px;">@item.date.ToString("dd.MMMM.yy")</span>
+                        <span class="comments" style="font-size: 15px;color: #fff;margin-right: 6px;">@item.comment.Count</span>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+        <!-- ===============.=======ASIDE================ -->
+        <aside class="col-md-4 col-sm-4">
+            <div class="side-widget margin-bottom-60  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                <!-- ======================Layout aside -social================ -->
+                <div class="side-widget margin-bottom-60">
+                    <h3 class="heading-1"><span>sosial şəbəkə</span></h3>
+                    <div class="social">
+                        @foreach (sosial item in ViewBag.sosial)
+                        {
+                            <div class="share s_facebook">
+                                <a href="@item.name"><i class="@item.link"></i></a>
+                            </div>
+                        }
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                <!-- ======================Advertsment================ -->
+                <div class="ads ad-300 margin-bottom-60  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                    <h3 class="heading-1"><span>Reklam</span></h3>
+                    <img src="~/Public/images/@ViewBag.setting.advertsment" class="img-responsive" alt="">
+                </div>
+                <!-- ======================Layout-down================ -->
+                <div class="side-widget margin-bottom-60  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                    <h3 class="heading-1  margin-top-60"><span>baş Xəbərlər</span></h3>
+                
+                    <div class="row  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                        @foreach (news item in ViewBag.sport_right)
+                        {
+                        <div class="col-md-6 col-sm-6  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                       
+                                <div class="layout_2--item margin-bottom-5  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                                    <div class="thumb  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                                        <div class="gallery2  fadeIn" style="visibility: visible; animation-name: fadeIn;"></div>
+                                        <a href="@Url.Action("read", "news", new { id = item.id })"><img src="~/Public/images/@item.photo" class="img-responsive" alt=""></a>
+                                    </div>
+                                    <h4 class="margin-top-10"><a href="@Url.Action("read", "news", new { id = item.id })">@item.description</a></h4>
+                                    <span class="author" style="font-size: 15px; color: #fff;margin-right: 6px;">@item.writer</span>
+                                    <div class="meta  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                                        <span class="date" style="font-size: 15px;color: #fff;margin-right: 6px;">@item.date.ToString("dd.MMMM.yy")</span>
+                                        <span class="comments" style="font-size: 15px;color: #fff;margin-right: 6px;">@item.comment.Count</span>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+            </div>
+        </aside>
+    </div>
+</div>
+

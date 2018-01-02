@@ -1,0 +1,91 @@
+﻿@using Xeber.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Giriş edin";
+}
+<style>
+    .submit {
+        background: #abd46e;
+        font-size: 15px;
+        color: white;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+        .submit:hover {
+            background: #719e37;
+            font-size: 15px;
+            color: white;
+        }
+
+        .submit:active {
+            background: #abd46e;
+            font-size: 15px;
+            color: white;
+        }
+    .color_p {
+        color: #abd46e;
+    }
+
+    .color_p:hover {
+        text-decoration:none;
+    }
+</style>
+<h2 style="text-align:center; color:rgb(172, 198, 151);">@ViewBag.Title</h2>
+<div class="row">
+    <div class="col-md-8">
+        <section id="loginForm" style="margin-bottom: 5%;">
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <hr style="width:152%;">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @*@Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })*@
+                    <div class="col-md-2 control-label">
+                        <label for="Email" style="color:rgb(172, 198, 151);">Email adresiniz:</label>
+                    </div>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @*@Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })*@
+                    <div class="col-md-2 control-label">
+                        <label for="Password" style="color:rgb(172, 198, 151);">Şifrə daxil edin:</label>
+                    </div>
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        @*<div class="checkbox">
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            @Html.LabelFor(m => m.RememberMe)
+                        </div>*@
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Daxil ol" class="btn btn-default submit" />
+                    </div>
+                </div>
+                <p style="color: #abd46e;">
+                    @Html.ActionLink("Yeni istifadeçi kimi qeydiyyatdan keç", "Register", new { @class = "color_p" })
+                </p>
+                //Включите, когда будет включено подтверждение учетной записи для функции сброса пароля
+                    @*<p style="color: #abd46e;">
+                        @Html.ActionLink("Şifrəni unutmusan?", "ForgotPassword", new { @class = "color_p" })
+                    </p>*@
+            }
+        </section>
+    </div>
+  
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

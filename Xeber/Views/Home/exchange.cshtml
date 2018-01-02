@@ -1,0 +1,21 @@
+﻿@using Xeber.Models;
+
+@{
+    ViewBag.Title = "exchange";
+}
+
+
+@foreach (exchang item in ViewBag.exchg)
+{
+<div class="col-md-12  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+    <div class="layout_2--item margin-bottom-22px  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+        <div class="number  fadeIn" style="visibility: visible; animation-name: fadeIn;">@item.name</div>
+        <h4 class="margin-top-10">Alış: @item.buying</h4>
+        <h4 class="margin-top-10">Satış: @item.sales</h4>
+    </div>
+    <hr class="l4 margin-top-30 margin-bottom-20">
+</div>
+}
+
+
+

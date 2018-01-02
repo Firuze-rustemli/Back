@@ -1,0 +1,88 @@
+﻿@model Xeber.Models.care
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admins/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .control-label{
+        color:black;
+        font-size:18px;
+        margin-bottom:10px;
+    }
+    .form-control {
+        padding: 6px 28px;
+        margin-bottom:15px;
+    }
+    .btn, .back {
+        padding: 4px 17px;
+        background: rgb(54, 127, 169);
+        border-radius: 5px;
+        border: none;
+        margin-bottom: 15px;
+        color: white;
+    }
+    .form-group{
+        text-align:center;
+    }
+
+    .back{
+        width:11%;
+        color:white;
+    }
+    .head {
+        font-size: 22px;
+        background: black;
+        color: white;
+        text-align: center;
+        font-family: cursive;
+    }
+ 
+</style>
+<h2 class="head">Duzenle</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.count, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.count, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.count, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div class="back">
+    @Html.ActionLink("Back to List", "Index")
+</div>

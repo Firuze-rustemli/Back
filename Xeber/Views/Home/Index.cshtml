@@ -1,0 +1,306 @@
+﻿@using Xeber.Models;
+
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ <!-- ===============.=======CONTENT================ -->
+<div class="container margin-top-30">
+    <div class="row">
+        <div class="row  fadeIn animated" style="visibility: visible;">
+            <div class="col-md-8 col-sm-8  fadeIn animated" style="visibility: visible;">
+                <!--====================LAYOUT-1======================-->
+                <div class="layout_1 margin-bottom-30">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="heading-1"><span>Əsas xəbərlər</span></h3>
+
+                           @Html.Partial("takeSlide")  
+
+                        </div>
+                    </div>
+                </div>
+                <!--====================LAYOUT DOWN======================-->
+                <div class="layout_2 margin-bottom-20  fadeIn animated" style="visibility: visible;">
+                    <div class="row  fadeIn animated" style="visibility: visible;">
+                        @Html.Partial("takeGalery") 
+                    </div>
+                </div>
+                <!--====================LAYOUT-3======================-->
+                <h3 class="heading-1"><span>Maraqlı</span></h3>
+                <div class="row  fadeIn animated" style="visibility: visible;">
+
+                    @Html.Partial("takeGallery")
+                </div>
+                <!--====================LAYOUT-4======================-->
+                <h3 class="heading-1"><span> Əsas xəbərlər</span></h3>
+                <div class="row margin-bottom-30  fadeIn animated" style="visibility: visible;">
+                    @Html.Partial("takePic") 
+                    </div>
+                    <!--====================LAYOUT-5======================-->
+                    <div class="layout_3  fadeIn animated" style="visibility: visible;">
+                        <div class="row  fadeIn animated" style="visibility: visible;">
+                            <div class="col-md-6 col-sm-6 margin-bottom-30  fadeIn animated" style="visibility: visible;">
+                                <h3 class="heading-1"><span>İdman</span></h3>
+                               <div class=" margin-bottom-30 layout_3--item  fadeIn animated" style="visibility: visible;">
+                                    <div class="thumb  fadeIn animated" style="visibility: visible;">
+                                        <a href="Pages/page_sport/post22.html"><img src="~/Public/images/sport/25.jpg" class="img-responsive" alt=""></a>
+                                    </div>
+                                    <h4 class="margin-top-10"><a href="Pages/page_sport/post22.html">Gəncə stadionunda son vəziyyət</a></h4>
+                                    <p>
+                                        Gəncə şəhər stadionunun əsas meydançasına yeni salınan ot örtüyünə qulluq və texniki
+                                        baxış davam edir. Apasport.az saytının məlumatına görə...
+                                    </p>
+                                    <div class="meta  fadeIn animated" style="visibility: visible;"><span class="author">by Rana F.</span><span class="date">Sep. 28, 2016</span></div>
+                                </div>
+                               @Html.Partial("takBoth")
+                                <div class="margin-bottom-30  fadeIn animated" style="visibility: visible;"></div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 margin-bottom-30  fadeIn animated" style="visibility: visible;">
+                                <h3 class="heading-1"><span>Kriminal</span></h3>
+                                <div class="margin-bottom-30  layout_3--item fadeIn animated" style="visibility: visible;">
+                                    <div class="thumb  fadeIn animated" style="visibility: visible;">
+                                        <a href="Pages/page_criminal/post3.html"><img src="~/Public/images/criminal/3.jpeg" class="img-responsive" alt=""></a>
+                                    </div>
+                                    <h4 class="margin-top-10"><a href="Pages/page_criminal/post3.html">Xadimə işlədiyi evdən oğurluq edib</a></h4>
+                                    <p>
+                                        Binəqədi RPİ 7-ci PB əməkdaşlarının keçirdikləri əməliyyat-axtarış tədbirləri nəticəsində
+                                        avqustun 27-də rayonun...
+                                    </p>
+                                    <div class="meta  fadeIn animated" style="visibility: visible;">
+                                        <span class="author">by Rana F.</span><span class="date">Sep. 28, 2016</span>
+                                    </div>
+                                </div>  
+
+                                @Html.Partial("addBoth")
+                              
+                                <div class="margin-bottom-30 margin-bottom-30  fadeIn animated" style="visibility: visible;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--====================LAYOUT-6======================-->
+                    <h3 class="heading-1"><span>Dünya</span></h3>
+                    <div class="layout_3  fadeIn animated" style="visibility: visible;">
+                        <div class="row margin-bottom-30  fadeIn animated" style="visibility: visible;">
+                            <div class="col-md-8 col-sm-8 margin-bottom-30  fadeIn animated" style="visibility: visible;">
+                                <div class="layout_3--item  fadeIn animated" style="visibility: visible;">
+                                    <div class="thumb  fadeIn animated" style="visibility: visible;">
+                                        <a href="Pages/page_world/post8.html"><img src="~/Public/images/world/8.jpg" class="img-responsive" alt=""></a>
+                                    </div>
+                                    <span class="cat">Dünya</span>
+                                    <h2><a href="Pages/page_world/post8.html">Putin ABŞ-dakı qalmaqallı səfiri geri çağırdı</a></h2>
+                                    <p>Rusiya prezidenti Vladimir Putinin sərəncamı ilə Anatoli Antonov bu ölkənin ABŞ-a yeni səfiri təyin olunub...</p>
+                                    <div class="meta  fadeIn animated" style="visibility: visible;"><span class="author">by Rana F.</span><span class="date">Sep. 28, 2016</span></div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4  fadeIn animated" style="visibility: visible;">
+                               @Html.Partial("takeWorld")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <aside class="col-md-4 col-sm-4">
+                <!--====================LAYOUT-ASIDE-SOCIAL======================-->
+                <div class="side-widget margin-bottom-60">
+                    <h3 class="heading-1"><span>Sosial şəbəkə</span></h3>
+                  @Html.Partial("sosial")
+                    <div class="clearfix"></div>
+                </div>
+                <!--====================LAYOUT-ASIDE-2======================-->
+                <div class="side-widget margin-bottom-60  fadeIn animated" style="visibility: visible;">
+                    <h3 class="heading-1"><span>baş xəbərlər</span></h3>
+                @Html.Partial("main")
+                </div>
+                <!--====================LAYOUT-ASIDE-3======================-->
+                <div class="side-widget margin-bottom-30  fadeIn animated" style="visibility: visible;">
+                    <h3 class="heading-1" style="margin-top:90px;"><span>Valyuta</span></h3>
+                    <div class="trending-box  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                        <div class="row  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            @Html.Partial("exchange")
+                        </div>
+                    </div>
+                </div>
+                <!--====================LAYOUT-ASIDE-4======================-->
+                <div class="side-widget margin-bottom-60  fadeIn animated" style="visibility: visible;">
+                    <h3 class="heading-1" style="margin-top:90px;"><span>Categories</span></h3>
+                    @Html.Partial("takeCateg")
+                    <div class="clearfix  fadeIn animated" style="visibility: visible;"></div>
+                </div>
+                <div class="side-widget margin-bottom-50  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                    <h3 class="heading-1"><span>Ən çox baxılanlar</span></h3>
+                   @Html.Partial("takeMost")
+                </div>
+                <!--====================ADVERTSMENT======================-->
+                <div class="ads ad-300 margin-bottom-60  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                    <h3 class="heading-1" style="margin-top:60px;"><span>Advertsment</span></h3>
+                    <img src="~/Public/images/@ViewBag.setting.advertsment" class="img-responsive" alt="">
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>
+<!--====================VIDEO CAROUSEL======================-->
+<h3 class="heading-1"><span>Videolar</span></h3>
+<div class="margin-top-30   fadeIn animated margin-bottom-60">
+    <div class="margin-top-30  fadeIn animated margin-bottom-60">
+        <div class="margin-top-30 video-carousel-wrap bg-dark">
+            <div class="container">
+                <div class="clearfix"></div>
+                <div class="col-md-8 col-sm-7 no-padding">
+                    <div class="video-container">
+                        <video id="video" width="400" onclick="togglePause()" controls>
+                            <source src="~/Public/video/01.mp4" type="video/mp4">
+                        </video>
+                        <div class="layout_1--item vc-item1 active">
+                            <div class="video-play"></div>
+                            <span class="badge text-uppercase badge-overlay badge-tech">Lorem</span>
+                            <div class="overlay"></div>
+                            <img src="~/Public/images/videos/1.png" class="img-responsive" alt="" />
+                            <div class="layout-detail padding-25">
+                                <h4>Avtobusda sernişin sürücü ilə dava etdi</h4>
+                                <div class="meta">
+                                    <span class="author">by Firuze R.</span><span class="date">Sep. 27, 2016</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layout_1--item vc-item2">
+                            <div class="video-play"></div>
+                            <span class="badge text-uppercase badge-overlay badge-tech">Lorem</span>
+                            <div class="overlay"></div>
+                            <img src="~/Public/images/videos/02.jpg" class="img-responsive" alt="" />
+                            <div class="layout-detail padding-25">
+                                <h4>Ünvanlı sosial yardım artılacaq</h4>
+                                <div class="meta">
+                                    <span class="author">by Firuze R.</span><span class="date">Sep. 27, 2016</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layout_1--item vc-item3">
+                            <div class="video-play"></div>
+                            <span class="badge text-uppercase badge-overlay badge-tech">Tech</span>
+                            <div class="overlay"></div>
+                            <img src="~/Public/images/videos/3.jpg" class="img-responsive" alt="" />
+                            <div class="layout-detail padding-25">
+                                <h4>Yeni ana olan mugennni ƏRİ VƏ ÖVLADI İLƏ- Shou biznes</h4>
+                                <div class="meta">
+                                    <span class="author">
+                                        by Firuze R
+                                    </span><span class="date">Sep. 27, 2016</span><span class="comments">3</span>
+                                    <span class="views">284</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layout_1--item vc-item4">
+                            <div class="video-play"></div>
+                            <span class="badge text-uppercase badge-overlay badge-tech">Lorem</span>
+                            <div class="overlay"></div>
+                            <img src="~/Public/images/videos/4.jpg" class="img-responsive" alt="" />
+                            <div class="layout-detail padding-25">
+                                <h4>
+                                    İrana gedənlər məcburi sığortalanacaqlar I Xezer Xeber
+                                </h4>
+                                <div class="meta">
+                                    <span class="author">by Firuze R.</span><span class="date">Sep. 27, 2016</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layout_1--item vc-item4">
+                            <div class="video-play"></div>
+                            <span class="badge text-uppercase badge-overlay badge-tech">Lorem</span>
+                            <div class="overlay"></div>
+                            <img src="~/Public/images/videos/4.jpg" class="img-responsive" alt="" />
+                            <div class="layout-detail padding-25">
+                                <h4>
+                                    İrana gedənlər məcburi sığortalanacaqlar I Xezer Xeber
+                                </h4>
+                                <div class="meta">
+                                    <span class="author">by Firuze R.</span><span class="date">Sep. 27, 2016</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-5 no-padding">
+                    <div class="now-playing">
+                        <i class="fa fa-play"></i>
+                        <p>Ən son baxılanlar</p>
+                    </div>
+                    <div class="video-list">
+                        <ul>
+                            <li class="vl-video1">
+                                <div class="thumb">
+                                    <div class="overlay-alt"></div>
+                                    <div class="video-play-32"></div>
+                                    <img src="~/Public/images/videos/1.png" class="img-responsive" alt="" />
+                                </div>
+                                <p>Avtobusda sernişin sürücü ilə dava etdi</p>
+                            </li>
+                            <li class="vl-video2">
+                                <div class="thumb">
+                                    <div class="overlay-alt"></div>
+                                    <div class="video-play-32"></div>
+                                    <img src="~/Public/images/videos/02.jpg" class="img-responsive" alt="" />
+                                </div>
+                                <p>Ünvanlı sosial yardım artılacaq</p>
+                            </li>
+                            <li class="vl-video3">
+                                <div class="thumb">
+                                    <div class="overlay-alt"></div>
+                                    <div class="video-play-32"></div>
+                                    <img src="~/Public/images/videos/3.jpg" class="img-responsive" alt="" />
+                                </div>
+                                <p>Yeni ana olan müğənni əri və övladı ilə</p>
+                            </li>
+                            <li class="vl-video2">
+                                <div class="thumb">
+                                    <div class="overlay-alt"></div>
+                                    <div class="video-play-32"></div>
+                                    <img src="~/Public/images/videos/4.jpg" class="img-responsive" alt="" />
+                                </div>
+                                <p>
+                                    İrana gedənlər məcburi sığortalanacaqlar I Xezer Xeber
+                                </p>
+                            </li>
+                            <li class="vl-video2">
+                                <div class="thumb">
+                                    <div class="overlay-alt"></div>
+                                    <div class="video-play-32"></div>
+                                    <img src="~/Public/images/videos/4.jpg" class="img-responsive" alt="" />
+                                </div>
+                                <p>
+                                    İrana gedənlər məcburi sığortalanacaqlar I Xezer Xeber
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container  fadeIn animated" style="visibility: visible;">
+    <!--====================RIGHT-SIDE-DOWN======================-->
+    <div class="row margin-bottom-30  fadeIn animated" style="visibility: visible;">
+        <div class="col-md-8 col-sm-8 margin-bottom-30  fadeIn animated" style="visibility: visible;">
+            <h3 class="heading-1"><span>Maraqlı</span></h3>
+            <!--====================LAYOUT-LIST-======================-->
+                @Html.Partial("takeInter")
+            <hr class="l4">
+            <!--====================LAYOUT-END_LIST-======================-->
+        </div>
+        <aside class="col-md-4 col-sm-4">
+            <!--====================LAYOUT-ASIDE_7-======================-->
+            <div class="side-widget margin-bottom-30  fadeIn animated" style="visibility: visible;">
+                <h3 class="heading-1"><span>Sağlamlıq</span></h3>
+                @Html.Partial("takeCare")
+            </div>
+            <!--====================LAYOUT-ASIDE_8-======================-->
+            <div class="ads ad-300 margin-bottom-60  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                <h3 class="heading-1" style="margin-top:60px;"><span>Advertsment</span></h3>
+                <img src="~/Public/images/@ViewBag.setting.fadvertsment" class="img-responsive" alt="">
+            </div>
+        </aside>
+    </div>
+</div>

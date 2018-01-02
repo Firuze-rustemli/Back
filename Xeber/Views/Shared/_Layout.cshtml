@@ -1,0 +1,198 @@
+﻿@using Xeber.Models
+
+<!Doctype html>
+<html lang="En">
+
+<head>
+    <meta charset="utf-8" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="News,Information">
+    <meta name="author" content="Firuze Rustemli">
+    <title>News</title>
+    <!-- Css -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+          crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,400i,500,700,700i,900" rel="stylesheet">
+    <link href="~/Public/asset/css/responsive.css" rel="stylesheet">
+    <link href="~/Public/asset/css/animation.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/Public/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Public/owlcarousel/assets/owl.theme.default.min.css">
+    <link href="~/Public/asset/css/style.css" rel="stylesheet">
+    <link href="~/Public/asset/css/design.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/Public/asset/css/slicknav.css">
+    <link rel="stylesheet" href="~/Public/asset/css/superfish.css">
+</head>
+
+<body>
+    <div id="wrapper" style="margin-top: -4%">
+        <!-- =============HEADER==================== -->
+        <header class="header margin-bottom-30">
+            <!-- =================BREAKING================ -->
+            <div class="bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8 hidden-xs">
+                            <div class="breaking">
+                                <span>Qaynar Xəbərlər:</span>
+                                <p class='heading'>
+                                    <span id='dynamicText'></span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="pull-right options">
+                                @*<a style="font-size:16px" href="@Url.Action("index","user", new { @class="login" })">*@
+                                @Html.Partial("_LoginPartial")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- =============WATCHER============= -->
+            <div class="clearfix"> </div>
+            <div class="watcher padding-vertical-10">
+                <div clsas="main">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-3 logo">
+                                @*   <a href="@Url.Action("index","Home")"><img src="~/Public/images/@ViewBag.setting.logo" alt=""></a>*@
+                            </div>
+                            <div class="col-md-9 col-sm-9 nav-wrapper">
+                                <nav>
+                                    <ul class="sf-menu" id="menu" style="touch-action: pan-y;margin-top: 7px;margin-bottom: -21px;">
+                                        <li>
+                                            @Html.ActionLink("Əsas səhifə", "index", "home")<i class="fa fa-angle-down"></i>
+                                        </li>
+                                        <li>
+                                            <a href="#">Kateqorİya<i class="fa fa-angle-down"></i></a>
+                                            <ul class="animate">
+                                                <li>
+                                                    @Html.ActionLink("İqtisadiyyat", "index", "category")
+                                                </li>
+                                                <li>
+                                                    <a href="#">Maraqlı <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                                                    <ul class="animate drop">
+                                                        <li>
+                                                            @Html.ActionLink("Şou", "magasin", "category")
+                                                        </li>
+                                                        <li>
+                                                            @Html.ActionLink("Sağlamlıq", "healthy", "category")
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    @Html.ActionLink("İdman", "sport", "category")
+                                                </li>
+                                                <li>
+                                                    @Html.ActionLink("Sosial", "social", "category")
+                                                </li>
+                                                <li>
+                                                    @Html.ActionLink("Dünya", "world", "category")
+                                                </li>
+                                                <li>
+                                                    @Html.ActionLink("Kriminal", "crime", "category")
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("Komanda", "tech", "category")
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("Əlaqə", "index", "contact")
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ===============MENU=============== -->
+            <div class="clearfix"> </div>
+        </header>
+     
+
+       @RenderBody()
+
+        <!--====================FOOTER======================-->
+        <footer class="bg-dark footer1 padding-top-60">
+            <div class="container-fluid">
+                <div class="row margin-bottom-30">
+                    <div class="col-md-7 col-sm-4 margin-bottom-30 footer-info">
+                        <a href="@Url.Action("index","Home")"><img src="~/Public/images/@ViewBag.setting.flogo" class="img-responsive" alt="" /></a>
+                        <p>
+                            Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor
+                            sit amet Lorem ipsum dolor sit amet
+                        </p>
+                        <span><i class="fa fa-map-marker"></i> @ViewBag.setting.location </span>
+                        <span><i class="fa fa-envelope"></i> <a href="mailto:pfiruze.p202@code.edu.az">pfiruza.p202@code.edu.az</a></span>
+                        <span><i class="fa fa-phone"></i> @ViewBag.setting.phono</span>
+                    </div>
+                    <div class="col-md-5 col-sm-4 margin-bottom-30 footer-follow">
+                        <h5>bİzİ İzləyİn</h5>
+                        <div class="footer-newsletter">
+                            <form action="http://ckthemes.com/html/watcher/php/subscribe.php" id="invite1" method="POST">
+                                <i class="fa fa-envelope"></i>
+                                <input type="email" placeholder="Emailiniz" class="e-mail" name="email" id="address1" data-validate="validate(required, email)">
+                                <button type="submit">Abunə ol</button>
+                            </form>
+                            <div id="result1"></div>
+                        </div>
+                        <div class="footer-social margin-top-30">
+                            <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
+                            <a href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a>
+                            <a href="https://plus.google.com"><i class="fa fa-google-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- FOOTER COPYRIGHT -->
+                <div class="footer-bottom">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-12">
+                            <p>&copy; Copyright @DateTime.Now.Year - Watcher.com. Bütün hüquqlar qorunur.</p>
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <ul class="footer-links">
+                                <li><a href="Contact.html">Əlaqə</a></li>
+                                <li><a href="terms.html">İstifadəçi Qaydaları</a></li>
+                                <li><a href="privacy.html">Gizlilik</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="~/Public/js/index.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+    <script src="~/Public/js/jquery.min.js"></script>
+    <script src="~/Public/owlcarousel/js/owl.carousel.min.js"></script>
+    <script src="~/Public/js/script.js"></script>
+    <script src="~/Public/js/jquery.slicknav.min.js"></script>
+    <script src="~/Public/js/superfish.min.js"></script>
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.10';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿@using Xeber.Models;
+
+@{
+    ViewBag.Title = "takeInter";
+}
+
+@foreach (news item in ViewBag.Inter)
+{
+    <div class="layout_3--item row  fadeIn animated" style="visibility: visible;">
+        <div class="col-md-6  fadeIn animated" style="visibility: visible;">
+            <span class="badge text-uppercase badge-overlay badge-entertainment">@item.title</span>
+            <div class="thumb  fadeIn animated" style="visibility: visible;">
+                <a href="@Url.Action("read","news", new {id=item.id})"><img src="~/Public/images/@item.photo" class="img-responsive" alt=""></a>
+            </div>
+        </div>
+        <div class="col-md-6  fadeIn animated" style="visibility: visible;">
+            <span class="cat">@item.title</span>
+            <h4><a href="@Url.Action("read","news", new {id=item.id})">@item.description</a></h4>
+            <p>@item.content.Substring(0,60)..</p>
+            <div class="meta  fadeIn animated" style="visibility: visible;"><span class="author">by Rana F.</span><span class="date">@item.date.ToString("dd.MMMM.yy")</span><span class="comments">@item.comment.Count</span></div>
+         @Html.ActionLink("Daha çox", "read", "news", new { id = item.id, date = item.date.ToString("dd.MMMM.yy") }, new { @class = "rmore2" })
+        </div>
+    </div>
+
+}
+
+
+

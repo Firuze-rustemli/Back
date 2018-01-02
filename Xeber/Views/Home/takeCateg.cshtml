@@ -1,0 +1,14 @@
+﻿@using Xeber.Models;
+
+@{
+    ViewBag.Title = "takeCateg";
+}
+
+<ul class="categories">
+@foreach (category item in ViewBag.category)
+{
+    <li><a href="">@item.name</a> <span>@item.news.Count</span></li>
+}
+ 
+</ul>
+

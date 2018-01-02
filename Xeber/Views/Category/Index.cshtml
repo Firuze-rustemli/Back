@@ -1,0 +1,382 @@
+﻿@using Xeber.Models;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+   <!-- ===============.=======CONTENT================ -->
+<div class="container margin-top-30">
+    <div class="row">
+        <!--======================PATH=========================-->
+        <div id="breadcrumbs" class="stuck_position margin-bottom-30">
+            <div class="container">
+                <div class="row">
+                    <div class="moduletable   col-sm-12">
+                        <div class="module_container">
+                            <ul class="breadcrumb">
+                                <li><a href="index-2.html" class="pathway">Baş səhifə</a></li>
+                                <li><a href="index-2.html" class="pathway">Kateqoriya</a></li>
+                                <li class="active"><span>İqtisadiyyat</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 col-sm-8  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+            <!--====================LAYOUT-1=============================-->
+            <div class="layout_1 margin-bottom-30  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                <div class="row  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                 @foreach (news item in ViewBag.first2)
+                 {
+
+                    <div class="col-md-8  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                        <div class="layout_1--item  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <a href="@Url.Action("read", "news", new {id=item.id})">
+                                <div class="overlay  fadeIn" style="visibility: visible; animation-name: fadeIn;"></div>
+                                <img src="~/Public/images/@item.photo" style="height:321px;" class="img-responsive" alt="">
+                                <div class="layout-detail padding-25  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                                    <div class="icon-32 gallery2  fadeIn" style="visibility: visible; animation-name: fadeIn;"></div>
+                                    <h4>
+                                       @item.description
+                                    </h4>
+                                    <p>
+                                        @item.content.Substring(0,50)..
+                                    </p>
+                                    <div class="meta  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                                        <span class="author">@item.writer</span>
+                                        <span class="date">@item.date.ToString("dd.MMMM.yy")</span>
+                                        <span class="comments">@item.comment.Count</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                 }
+                @foreach (news item in ViewBag.first)
+                {
+                    <div class="col-md-4  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <div class="layout_1--item  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                                <a href="@Url.Action("read", "news", new {id=item.id})">
+                                    <div class="overlay  fadeIn" style="visibility: visible; animation-name: fadeIn;"></div>
+                                    <img src="~/Public/images/@item.photo" class="img-responsive" alt="">
+                                    <div class="layout-detail padding-20  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                                        <div class="icon-32 gallery2  fadeIn" style="visibility: visible; animation-name: fadeIn;"></div>
+                                        <h5>
+                                          @item.description
+                                        </h5>
+                                        <div class="meta  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                                            <span class="author">@item.writer</span>
+                                            <span class="date">@item.date.ToString("dd.MMMM.yy")</span>
+                                            <span class="comments">@item.comment.Count</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                    </div>
+                  }
+                </div>
+            </div>
+            <!--====================LAYOUT-2=============================-->
+            <div class="layout_2 margin-bottom-20  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                <div class="row  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                    @foreach (news item in ViewBag.snd)
+                    {
+                        <div class="col-md-4 col-sm-4  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <div class="layout_2--item  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                                <div class="thumb  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                                    <a href="@Url.Action("read", "news", new {id=item.id})"><img src="~/Public/images/@item.photo" class="img-responsive" alt=""></a>
+                                </div>
+                                <span class="cat">
+                                    @item.description
+                                </span>
+                                <h4><a href="@Url.Action("read", "news", new {id=item.id})">@item.content.Substring(0,50)...</a></h4>
+                                <div class="meta  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                                    <span class="author">@item.writer</span>
+                                    <span class="date">@item.date.ToString("dd.MMMM.yy")</span>
+                                    <span class="comments">@item.comment.Count</span>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    
+                    
+                </div>
+                <div class="row  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                    @foreach (news item in ViewBag.scnd)
+                       {
+                    <div class="col-md-4 col-sm-4  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                        <div class="layout_2--item  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <div class="thumb  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                                <div class="icon-24 video2  fadeIn" style="visibility: visible; animation-name: fadeIn;"></div>
+                                <a href="@Url.Action("read", "news", new {id=item.id})"><img src="~/Public/images/@item.photo" class="img-responsive" alt=""></a>
+                            </div>
+                            <span class="cat">@item.description</span>
+                            <h4><a href="@Url.Action("read", "news", new {id=item.id})">@item.content.Substring(0, 50)...</a></h4>
+                            <div class="meta  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                                <span class="author">@item.writer</span>
+                                <span class="date">@item.date.ToString("dd.MMMM.yy")</span>
+                                <span class="comments">@item.comment.Count</span>
+                            </div>
+                        </div>
+                    </div>
+                  }
+                </div>
+            </div>
+            <!--====================LAYOUT-3=============================-->
+            <h3 class="heading-1 margin-bottom-20"><span>Başlıq</span></h3>
+            <div class="row  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                @foreach (news item in ViewBag.third2)
+                {
+                <div class="col-md-6 col-sm-6 margin-bottom-30  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                    <div class="layout_3--item  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                        <div class="thumb  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <a href="@Url.Action("read", "news", new {id=item.id})"><img src="~/Public/images/economy/10.jpeg" class="img-responsive" alt=""></a>
+                        </div>
+
+                        <h4><a href="@Url.Action("read", "news", new {id=item.id})">@item.description</a></h4>
+
+                        <p>
+                            @item.content.Substring(0,50).. 
+                        </p>
+                        <div class="meta  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <span class="author">@item.writer</span>
+                            <span class="date">@item.date.ToString("dd.MMMM.yy")</span>
+                            <span class="comments">@item.comment.Count</span>
+                        </div>
+                    </div>
+                </div>
+                }
+                <div class="col-md-6 col-sm-6 margin-bottom-30  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                  
+                    @foreach (news item in ViewBag.third)
+                    {
+
+                    <div class="layout_2--item row  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                        <div class="col-md-6 col-sm-5  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <div class="thumb  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                                <a href="@Url.Action("read", "news", new {id=item.id})"><img src="~/Public/images/@item.photo" class="img-responsive" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-7  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <h4>
+                                <a href="@Url.Action("read", "news", new {id=item.id})">
+                                   @item.description
+                                </a>
+                            </h4>
+                            <div class="meta  fadeIn" style="visibility: visible; animation-name: fadeIn;"><span class="author">@item.writer</span><span class="date">@item.date.ToString("dd.MMMM.yy")</span></div>
+                        </div>
+                    </div>
+                    <hr class="l2">
+                    }
+
+                    <div class="margin-bottom-30  fadeIn" style="visibility:visible; animation-name: fadeIn;"></div>
+                </div>
+            </div>
+            <!--====================LAYOUT-4=============================-->
+            <div class="row  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+             @foreach (news item in ViewBag.fourth2)
+             {
+                <div class="col-md-6 col-sm-6 margin-bottom-30  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                    <div class="layout_3--item  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                        <div class="thumb  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <a href="@Url.Action("read", "news", new {id=item.id})"><img src="~/Public/images/economy/14.jpeg" class="img-responsive" alt=""></a>
+                        </div>
+                        <h4>
+                            <a href="@Url.Action("read", "news", new {id=item.id})">
+                              @item.description
+                            </a>
+                        </h4>
+                        <p>
+                            @item.content.Substring(0,70)..
+                        </p>
+                        <div class="meta  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <span class="author">@item.writer</span>
+                            <span class="date">@item.date.ToString("dd.MMMM.yy")</span>
+                            <span class="comments">@item.comment.Count</span>
+                        </div>
+                 
+                    </div>
+                </div>
+             }
+                <div class="col-md-6 col-sm-6 margin-bottom-30  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                  
+                    @foreach (news item in ViewBag.fourth)
+                    {
+
+                    <div class="layout_2--item row  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                        <div class="col-md-6 col-sm-5  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <div class="thumb  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                                <a href="@Url.Action("read", "news", new {id=item.id})"><img src="~/Public/images/@item.photo" class="img-responsive" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-7  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <h4>
+                                <a href="@Url.Action("read", "news", new {id=item.id})">
+                                   @item.description
+                                </a>
+                            </h4>
+                            <div class="meta  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                                <span class="author">@item.writer</span>
+                                <span class="date">@item.date.ToString("dd.MMMM.yy")</span>
+                                <span class="comments">@item.comment.Count</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="l2">
+
+                    }
+                    <div class="margin-bottom-30  fadeIn" style="visibility: visible; animation-name: fadeIn;"></div>
+                </div>
+            </div>
+            <!--====================LAYOUT-5=============================-->
+            <div class="row  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+              @foreach (news item in ViewBag.fifth2)
+              {
+                <div class="col-md-6 col-sm-6 margin-bottom-30  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                    <div class="layout_3--item  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                        <div class="thumb  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <a href="@Url.Action("read", "news", new {id=item.id})"><img src="~/Public/images/economy/18.jpeg" class="img-responsive" alt=""></a>
+                        </div>
+                        <h4 class="margin-top-10">
+                            <a href="@Url.Action("read", "news", new {id=item.id})">
+                              @item.description
+                            </a>
+                        </h4>
+                        <p>
+                            @item.content.Substring(0,70)..
+                        </p>
+                        <div class="meta  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <span class="author">@item.writer</span>
+                            <span class="date">@item.date.ToString("dd.MMMM.yy")</span>
+                            <span class="comments">@item.comment.Count</span>
+                        </div>
+                    </div>
+                </div>
+              }
+                <div class="col-md-6 col-sm-6 margin-bottom-30  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                  @foreach (news item in ViewBag.fifth)
+                  {
+                    <div class="layout_2--item row  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                        <div class="col-md-6 col-sm-5  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <div class="thumb  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                                <a href="@Url.Action("read", "news", new {id=item.id})"><img src="~/Public/images/@item.photo" class="img-responsive" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-7  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <h4><a href="@Url.Action("post", "news", new {id=item.id})"> @item.description </a></h4>
+                            <div class="meta  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                                <span class="author">@item.writer</span>
+                                <span class="date">@item.date.ToString("dd.MMMM.yy")</span>
+                                <span class="comments">@item.comment.Count</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="l2">
+                  }
+                   
+                    <div class="margin-bottom-30  fadeIn" style="visibility: visible; animation-name: fadeIn;"></div>
+                </div>
+            </div>
+
+        </div>
+        <aside class="col-md-4 col-sm-4">
+            <!--====================LAYOUT-ASIDE_1-======================-->
+            <div class="ads ad-300 margin-bottom-60  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                <h3 class="heading-1"><span>Elan</span></h3>
+                <img src="~/Public/images/@ViewBag.setting.advertsment" class="img-responsive" alt="">
+            </div>
+            <!--====================LAYOUT-ASIDE_2-======================-->
+            <div class="side-widget margin-bottom-60  fadeIn social" style="visibility: visible; animation-name: fadeIn;">
+                <h3 class="heading-1"><span>sosial şəbəkə</span></h3>
+                <div class="side-share  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                  @foreach (sosial item in ViewBag.sosial)
+                  {
+                    <div class="share s_facebook  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                        <a href="@item.name"><i class="@item.link"></i></a>
+                    </div>
+                  }
+                   
+                
+                </div>
+                <div class="clearfix  fadeIn" style="visibility: visible; animation-name: fadeIn;"></div>
+            </div>
+            <!--====================LAYOUT-ASIDE_3-======================-->
+            <div class="side-widget margin-bottom-50  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                <h3 class="heading-1"><span>baş xəbərlər</span></h3>
+                <div class="layout_1--item  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                    <a href="Pages/page_econmy/post22.html">
+                        <div class="overlay  fadeIn" style="visibility: visible; animation-name: fadeIn;"></div>
+                        <img src="~/Public/images/economy/22.jpeg" class="img-responsive" alt="">
+                        <div class="layout-detail padding-20  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <div class="icon-32 gallery2  fadeIn" style="visibility: visible; animation-name: fadeIn;"></div>
+                            <h6>Azərbaycanda dəniz daşımalarının həcmi artıb</h6>
+                            <div class="meta  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                                <span class="author">by Alex R.</span>
+                                <span class="date">Sep. 27, 2016</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="side-widget margin-bottom-60  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                    <h3 class="heading-1  margin-top-60"></h3>
+   
+                    <div class="row  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                     @foreach (news item in ViewBag.side)
+                     {
+                        <div class="col-md-6 col-sm-6  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                         
+                            <div class="layout_2--item margin-bottom-5  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                                <div class="thumb  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                                    <div class="icon-24 gallery2  fadeIn" style="visibility: visible; animation-name: fadeIn;"></div>
+                                    <a href="@Url.Action("read", "news", new {id=item.id})"><img src="~/Public/images/@item.photo" class="img-responsive" alt=""></a>
+                                </div>
+                                <h4 class="margin-top-10"><a href="@Url.Action("read", "news", new {id=item.id})">@item.description </a></h4>
+                                <div class="meta  fadeIn" style="visibility: visible; animation-name: fadeIn;"><span class="date">@item.date.ToString("dd.MMMM.yy")</span></div>
+                            </div>
+                            
+                        </div>  
+                     }
+
+                </div>
+
+
+                <div class="layout_1--item  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                    <h3 class="heading-1 margin-top-30"><span>baş xəbərlər</span></h3>
+                    <a href="Pages/page_econmy/post29.html">
+                        <div class="overlay  fadeIn" style="visibility: visible; animation-name: fadeIn;"></div>
+                        <img src="~/Public/images/economy/29.jpeg" class="img-responsive" alt="">
+                        <div class="layout-detail padding-25  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <div class="icon-32 gallery2  fadeIn" style="visibility: visible; animation-name: fadeIn;"></div>
+                            <h6>Mənzillərin qiymətində artım gözlənilmi</h6>
+                            <div class="meta  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                                <span class="author">by Mahita G.</span><span class="date">Sep. 22, 2016</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="side-widget margin-bottom-60  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                    <h3 class="heading-1  margin-top-60"></h3>
+                    <div class="row  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                        @foreach (news item in ViewBag.sidecol)
+                        {
+                        <div class="col-md-6 col-sm-6  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <div class="layout_2--item margin-bottom-5  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                                <div class="thumb  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                                    <div class="gallery2  fadeIn" style="visibility: visible; animation-name: fadeIn;"></div>
+                                    <a href="@Url.Action("read", "news", new {id=item.id})"><img src="~/Public/images/@item.photo" class="img-responsive" alt=""></a>
+                                </div>
+                                <h4 class="margin-top-10"><a href="@Url.Action("read", "news", new {id=item.id})">@item.description</a></h4>
+                                <div class="meta  fadeIn" style="visibility: visible; animation-name: fadeIn;"><span class="date">@item.date.ToString("dd.MMMM.yy")</span></div>
+                            </div>
+                        </div>
+                        }
+                    </div>
+      
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>
+

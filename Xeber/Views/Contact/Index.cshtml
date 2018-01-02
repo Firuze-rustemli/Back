@@ -1,0 +1,171 @@
+﻿@model Xeber.Models.ContactModels
+
+@using Xeber.Models;
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .form-group {
+        float: left;
+    }
+    input.form-control, textarea.form-control {
+        border: 1px solid #e5e5e5;
+        border-radius: 5px;
+        outline: 0;
+        width: 159%;
+        padding: 23px 26px;
+        margin-bottom: 20px;
+        font-size: 16px;
+        width: 156% !important;
+    }
+    .btn {
+        padding: 10px 42px;
+        background: #abd46e;
+        margin-top: 17px;
+        display: inline-block;
+        border-radius: 0;
+        border: 0;
+        outline: 0;
+        font-size: 15px;
+        color: white;
+        font-weight: bold;
+        letter-spacing: 1px;
+        cursor: pointer;
+    }
+
+    .input-group-addon{
+
+    }
+
+</style>
+
+
+<!-- ===============.=======CONTENT================ -->
+<div class="container margin-top-30">
+    <div class="row">
+        <!-- ========================== Path =========================== -->
+        <div id="breadcrumbs" class="stuck_position">
+            <div class="container">
+                <div class="row">
+                    <div class="moduletable   col-sm-12">
+                        <div class="module_container">
+                            <ul class="breadcrumb">
+                                <li><a href="#" class="pathway">Baş səhifə</a></li>
+                                <li class="active"><span>Əlaqə</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ========================== Conatact Us =========================== -->
+        <section id="contact-us">
+            <div class="wrap">
+                <!--left pannel start-->
+                <div class="pannel-left">
+                    <h1>Bizə yazın</h1>
+                    <h3>Bütün formaları doldurmağınız xahiş olunur</h3>
+                    <hr style="width: 758px;"/>
+                    <div class="contact-form margin-top-30 ">
+
+                        <div class="container">
+                            @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "contact-form", action = "/contact" }))
+                            {
+                                if (ViewBag.Success != null && ViewBag.Success)
+                                {
+                                    <div id="wrapper">
+                                        <div id="message-sent">
+                                            <span style="    font-size: 19px;
+    margin-left: 2%; color:green;">Mesajınız başarıyla gönderilmiştir.</span>
+                                        </div>
+                                    </div>
+                                }
+                                <fieldset>
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <!-- Text input-->
+                                   
+                                    <div class="form-group">
+                                        <div class="col-md-4 inputGroupContainer">
+                                            <div class="input-group" style="margin-top: 23px;">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                                @Html.TextBoxFor(model => model.fullname, new { @class = "form-control", placeholder = "Adınız Soyadınız" })
+                                            </div>
+                                            @Html.ValidationMessageFor(model => model.fullname, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                        <div class="col-md-4 inputGroupContainer">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                                @Html.TextBoxFor(model => model.email, new { @class = "form-control", placeholder = "Email Adresiniz" })
+                                            </div>
+                                            @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <!-- Text area -->
+                                    <div class="form-group">
+                                        <div class="col-md-4 inputGroupContainer">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                                                @Html.TextAreaFor(model => model.text, new { @class = "form-control", placeholder = "Mesajınız" })
+
+                                            </div>
+                                            @Html.ValidationMessageFor(model => model.text, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    @if (TempData["Basarili"] != null)
+                                    {
+                <!-- Success message -->
+                                        <div class="alert alert-success" role="alert" id="success_message">
+                                            Gönderildi <i class="glyphicon glyphicon-thumbs-up"></i>@TempData["Basarili"]
+                                        </div>
+                                    }
+                                    <!-- Button -->
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label"></label>
+                                        <div class="col-md-4">
+                                            <button type="submit" class="btn btn-warning">Gönder <span class="glyphicon glyphicon-send"></span></button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            }
+                        </div>
+
+
+                        <strong><font color="green"></font></strong>
+                    </div>
+                </div>
+                <!--left pannel end-->
+                <!--left pannel start-->
+                <div class="pannel-right">
+                    <h3>Əlaqə:</h3>
+                    <p>
+                        Təklif və iradlarınız üçün:
+                        <br>Email us at <a href="#" target="_blank">@ViewBag.setting.email</a>
+                        <br>Call us at <a href="#" target="_blank">@ViewBag.setting.phono</a>
+                    </p>
+                    <p>
+                        <br>
+                        <strong>News AZ</strong>
+                        <br>Baku Azerbaijan,
+                        <br> @ViewBag.setting.location
+                        <br>2nd floor
+                    </p>
+                    <p>
+                        <br>
+                        <strong>Web News AZ</strong>
+                        <br>Baku Azerbaijan,
+                        <br>@ViewBag.setting.location
+                        <br>2nd floor
+                    </p>
+                </div>
+                <!--left pannel end-->
+            </div>
+        </section>
+        <!--contact us page end-->
+    </div>
+</div>

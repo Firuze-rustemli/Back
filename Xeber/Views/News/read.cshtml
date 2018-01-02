@@ -1,0 +1,203 @@
+﻿@using Xeber.Models;
+
+
+@{
+    ViewBag.Title = "post";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .btn-submit {
+        padding: 10px 32px;
+        letter-spacing: 1px;
+        font-weight: 600;
+        text-transform: uppercase;
+        border: 2px solid #abd46e;
+        background: #abd46e;
+        line-height: 26px;
+        color: #ffffff;
+        font-size: 15px;
+        position: relative;
+        border-radius: 3px;
+        margin-bottom: 20px;
+    }
+    #textarea {
+        position: relative !important;
+        display: block !important;
+        width: 100% !important;
+        line-height: 30px !important;
+        padding: 10px 20px !important;
+        font-size: 14px !important;
+        background: #f7fafa !important;
+        border: 1px solid #e5e5e5 !important;
+        border-radius: 3px !important;
+    }
+    #input {
+        position: relative !important;
+        display: block !important;
+        width: 100% !important;
+        line-height: 30px !important;
+        padding: 10px 20px !important;
+        height: 52px !important;
+        font-size: 14px !important;
+        background: #f7fafa !important;
+        border: 1px solid #e5e5e5 !important;
+        border-radius: 3px !important;
+    }
+    #wrapper .comment-content {
+        padding-left: 35px;
+    }
+</style>
+
+ <!-- ===============.=======CONTENT================ -->
+<div class="container margin-top-30">
+    <div class="row">
+        <!--======================PATH=========================-->
+        <div id="breadcrumbs" class="stuck_position margin-bottom-30">
+            <div class="container">
+                <div class="row">
+                    <div class="moduletable   col-sm-12">
+                        <div class="module_container">
+                            <ul class="breadcrumb">
+                                <li><a href="../../economy.html" class="pathway">IQtisadiyyat</a></li>
+                                <li class="active"><span>Dollar</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--======================RightSide=========================-->
+        <div class="clearfix  fadeIn" style="visibility: visible; animation-name: fadeIn;"></div>
+        <div class="col-md-8 col-sm-8  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+            <!--=================LAYOUT-POST===================-->
+            <div class="blog-excerpt  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                <img src="~/Public/images/@ViewBag.Post.photo" style="width: 100%;" class="img-responsive" alt="">
+
+                <div class="blog-single-head margin-top-25  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                    <h2>@ViewBag.Post.description</h2>
+                </div>
+
+                <p class="margin-bottom-30">@ViewBag.Post.content</p>
+
+            </div>
+            <!--=================LAYOUT-Down===================-->
+            <h3 class="heading-1 margin-top-60"><span>Uyğun xəbərlər</span></h3>
+            <div class="row margin-bottom-30  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                <div class="col-md-4  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                    <div class="layout_2--item  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                        <div class="thumb  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <a href="post13.html"><img src="~/Public/images/economy/13.jpeg" class="img-responsive" alt=""></a>
+                        </div>
+                        <h4><a href="post13.html" class="margin-top-30">Bank of Baku-dan Təhsil Kampaniyası</a></h4>
+                        <div class="meta  fadeIn" style="visibility: visible; animation-name: fadeIn;"><span class="author">by Rana F.</span><span class="date">Sep. 28, 2016</span></div>
+                    </div>
+                </div>
+
+                <div class="col-md-4  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                    <div class="layout_2--item  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                        <div class="thumb  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <a href="post14.html"><img src="~/Public/images/economy/14.jpeg" class="img-responsive" alt=""></a>
+                        </div>
+                        <h4><a href="post14.html">Pambıqçılığa dair müzakirələr başlayıb</a></h4>
+                        <div class="meta  fadeIn" style="visibility: visible; animation-name: fadeIn;"><span class="author">by Rana F.</span><span class="date">Sep. 28, 2016</span></div>
+                    </div>
+                </div>
+
+                <div class="col-md-4  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                    <div class="layout_2--item  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                        <div class="thumb  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <a href="post18.html"><img src="~/Public/images/economy/18.jpeg" class="img-responsive" alt=""></a>
+                        </div>
+                        <h4>
+                            <a href="post18.html">
+                                Bankların məcburi ehtiyatlarının saxlanma qaydası dəyişir
+                            </a>
+                        </h4>
+                        <div class="meta  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <span class="author">by Rana F.</span><span class="date">Sep. 28, 2016</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--====================LAYOUT-COMMENT===============-->
+            <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="1"></div>
+            @*<div class="comments-list margin-bottom-20  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                @foreach (comment item in ViewBag.Comments)
+                {
+                <div class="comment-content first  fadeIn" style="visibility: visible; animation-name: fadeIn; padding-left: 36px;">
+                    @if (item.photo != null)
+                    {
+                        <img src="~Uploads/@item.photo" alt="">
+                    }
+                    else
+                    {
+                        <img src="~/Public/images/comments/avatar2.png" alt="">
+                    }
+                    
+                
+                    <div class="comment-content">
+                        <h5>@item.fullname</h5>
+                        <p class="date">@item.date.ToString("dd MMM yyyy")</p>
+                        <p class="comment">@item.content</p>
+                    </div>
+
+                </div>
+                }
+            </div>*@
+            <!--=======================Layout-CommentWrite=====================-->
+            @*<h3 class="heading-1 margin-top-30"><span>Rəy yaz(@ViewBag.Comments.Count)</span></h3>
+            @if (ViewBag.ShowAddedComment == true)
+            {
+
+                <div class="alert alert-success">
+                    <p>Rəy yazıldı</p>
+                </div>
+            }
+            <form class="post-comment-form" method="post" action="@Url.Action("Addcomment","news",new { id = ViewBag.NewsSingle.id})">
+                    <input type="hidden" name="Id" value="@Model.id"/>
+                    <label>Mesajınız</label>
+                <textarea cols="30" id="textarea" name="txtContent" rows="7" placeholder="Type your comment"></textarea>
+
+                <div class="row  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                    <div class="col-md-6  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                        <label>Adınız</label>
+                        <input type="text" id="input" name="txtFullname" placeholder="Name">
+                    </div>
+
+                    <div class="col-md-6  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                        <label>Mailiniz</label>
+                        <input type="email" id="input" name="txtEmail" placeholder="Email">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">Göndər</button>
+            </form>*@
+        </div>
+        <!--=======================Layout-ASIDE=====================-->
+        <aside class="col-md-4 col-sm-4">
+            <!-- ======================Advertsment================ -->
+            <div class="ads ad-300 margin-bottom-60  fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                <h3 class="heading-1"><span>Elan</span></h3>
+                <img src="~/Public/images/@ViewBag.setting.advertsment" class="img-responsive" alt="">
+            </div>
+            <!-- ======================Layout aside -social================ -->
+            <div class="side-widget margin-bottom-60">
+                <h3 class="heading-1"><span>Sosial şəbəkə</span></h3>
+                <div class="social">
+                    @foreach (sosial item in ViewBag.sosial)
+                    {
+                        <div class="share s_facebook">
+                            <a href="@item.name"><i class="@item.link"></i></a>
+                        </div>
+                    }
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </aside>
+
+    </div>
+</div>
+

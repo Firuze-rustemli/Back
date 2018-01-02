@@ -1,0 +1,16 @@
+﻿@using Xeber.Models;
+
+@{
+    ViewBag.Title = "sosial";
+}
+
+<div class="social">
+@foreach ( sosial item in ViewBag.sosial)
+{
+    <div class="share s_facebook">
+        <a href="@item.name"><i class="@item.link"></i></a>
+    </div>
+}
+
+</div>
+

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b0e4bd2097e34c338a8f50b7c27a78f0" Name="Diagram1">
+        <EntityTypeShape EntityType="NewsModel.care" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewsModel.category" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewsModel.comment" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewsModel.contact" Width="1.5" PointX="4.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewsModel.exchang" Width="1.5" PointX="6.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewsModel.news" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewsModel.settings" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewsModel.sosial" Width="1.5" PointX="2.5" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewsModel.type" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewsModel.Views" Width="1.5" PointX="7.625" PointY="4" IsExpanded="true" />
+        <AssociationConnector Association="NewsModel.FK_news_category" ManuallyRouted="false" />
+        <AssociationConnector Association="NewsModel.FK_comment_news" ManuallyRouted="false" />
+        <AssociationConnector Association="NewsModel.FK_news_type" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="NewsModel.Admin" Width="1.5" PointX="5.375" PointY="8.75" />
+        <EntityTypeShape EntityType="NewsModel.User" Width="1.5" PointX="7.375" PointY="8.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

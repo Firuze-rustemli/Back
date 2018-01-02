@@ -1,0 +1,19 @@
+﻿
+@using Xeber.Models;
+
+@{
+    ViewBag.Title = "takeCare";
+}
+
+
+<ul class="trending-text">
+
+@foreach (care item in ViewBag.care)
+{
+    <li>
+        <em>@item.count</em>
+        <p><a href="@Url.Action("read","news", new {id=item.id})">@item.description</a> <span>@item.date.ToString("dd.MMMM.yy")</span></p>
+    </li>
+}
+</ul>
+
